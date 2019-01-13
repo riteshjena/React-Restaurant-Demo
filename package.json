@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "server": "nodemon ./server/index.js",
-    "webpack": "webpack-dev-server --config ./app/internals/webpack.dev.js",
+    "webpack": "webpack-dev-server --config ./app/internals/webpack.dev.js --open",
     "dev": "webpack --config ./app/internals/webpack.dev.js",
     "build": "webpack --config ./app/internals/webpack.prod.js",
     "start": "concurrently \"npm run server\" \"npm run webpack\""
