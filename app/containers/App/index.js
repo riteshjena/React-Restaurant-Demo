@@ -30,6 +30,17 @@ class App extends React.PureComponent{
   static propTypes = {
     restaurants: PropTypes.instanceOf(List)
   }
+  constructor(props) {
+    super(props);
+    window.onscroll = () => {
+      if(
+        window.innerHeight + document.documentElement.scrollTop
+        === document.documentElement.offsetHeight
+      ) {
+        this.props.getRestaurants(this.props.restaurantsLimit);
+      }
+    }
+  }
 
   componentDidMount() {
     this.props.getRecentSearches(this.props.recentsLimit);

@@ -21,16 +21,20 @@ const initialState = fromJS({
 
 const restaurantsReducer = (state = initialState, action) => {
   switch(action.type) {
-    case GET_RESTAURANTS_SUCCESS:
-      return state.set('restaurants', fromJS(action.restaurants))
-        .set('keywords', fromJS(action.keywords));
+    case GET_RESTAURANTS_SUCCESS: {
+      const restaurants = state.get('restaurants');
+      const keywords = state.get('keywords');
+
+      return state.set('restaurants', restaurants.concat(fromJS(action.restaurants)))
+        .set('keywords', keywords.concat(fromJS(action.keywords)));
+    }
     case TOGGLE_OVERLAY:
       return state.set('overlay', action.status);
     case SORT_RESTAURANTS: {
       const sorted = state.get('restaurants').sort((r1, r2) => {
-        if (parseInt(r1.get(action.sortBy)) > parseInt(r2.get(action.sortBy)))
+        if (parseFloat(r1.get(action.sortBy)) > parseFloat(r2.get(action.sortBy)))
           return action.sortBy === 'rating' ? -1 : 1;
-        if (parseInt(r1.get(action.sortBy)) < parseInt(r2.get(action.sortBy)))
+        if (parseFloat(r1.get(action.sortBy)) < parseFloat(r2.get(action.sortBy)))
           return action.sortBy === 'rating' ? 1 : -1;
         return 0;
       });
