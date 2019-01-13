@@ -1,0 +1,265 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.paddingAllTen {
+  padding: 10px;
+}
+
+.row {
+  width: 100%;
+}
+
+.card {
+  border-radius: 2px;
+  box-shadow: 0 0px 0px 0 rgba(0,0,0,0.14), 0 1px 1px -3px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.2)
+}
+
+.custom-anchor {
+  text-decoration: none;
+}
+
+.grid-overlay {
+  position: relative;
+  &:after {
+    content: ' ';
+    z-index: 10;
+    display: block;
+    position: fixed;
+    height: 100vh;
+    top: 0; left: 0; right: 0;
+    background: rgba(0, 0, 0, 0.5);
+  }
+}
+
+.card-image-wrapper {
+  height: 150px;
+  padding: 10px;
+  overflow-y: hidden;
+  img {
+    width: 100%;
+    border-radius: 5px;
+  }
+}
+
+.card-content-wrapper, .card-footer-wrapper {
+  padding: 0px 15px 15px 15px;
+}
+
+.restaurant-eta, .restaurant-rating {
+  display: inline-block;
+}
+
+.rating-icon {
+  vertical-align: text-top;
+  margin-right: 5px;
+}
+
+.restaurant-eta {
+  float: right;
+}
+
+.restaurant-name{
+  margin-bottom: 0px;
+}
+
+.cuisines-name, .restaurant-rating, .restaurant-eta {
+  font-weight: 100;
+}
+
+.cuisines-name {
+  font-size: 12px;
+}
+
+.filter-wrapper {
+  position: relative;
+  z-index: 20;
+  background-color: white;
+  input {
+    width: 100%;
+    border: none;
+    line-height: 30px;
+    border-bottom: 1px solid gray;
+    &:focus{
+      outline: none;
+    }
+  }
+}
+
+.search-text-wrapper {
+  position: relative;
+}
+
+.search-keywords {
+  position: absolute;
+  top: 34px;
+  width: 100%;
+  background-color: white;
+  max-height: 30vh;
+  overflow-y: auto;
+  padding: 0px 10px;
+}
+
+.search-keyword {
+  display: block;
+  font-size: 12px;
+  font-style: italic;
+  padding: 10px 0px 10px 0px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(234, 234, 234, .5);
+  }
+}
+
+.applied-filters-wrapper {
+  overflow: auto;
+  white-space: nowrap;
+  .filter-chip {
+    display: inline-block;
+    margin-right: 10px;
+    margin-top: 10px;
+    border-radius: 40px;
+    border: 1px solid rgba(0,0,0,0.2);
+    box-shadow: 0 0px 0px 0 rgba(0,0,0,0.14), 0 1px 1px -3px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.2);
+    .chip-text {
+      display: inline-block;
+      overflow-x: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    .remove-filter {
+      display: inline-block;
+      text-align: right;
+    }
+  }
+}
+
+.sort-wrapper select:focus {
+  outline: none;
+}
+
+.recents-header {
+  margin: 0px;
+  padding: 10px 0px 5px 0px;
+}
+
+.sort-wrapper select{
+  width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+  [class*='col-xs-'] {
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+
+  .offset-xs-7 {
+    margin-left: 58%;
+  }
+
+  .col-xs-12 {
+    width: 100%;
+  }
+
+  .col-xs-5 {
+    width: 42%;
+  }
+
+  .filter-wrapper {
+    padding-bottom: 0px;
+  }
+
+  .filter-chip {
+    width: 40%;
+    padding: 10px 10px 6px 15px;
+    .chip-text {
+      width: 70%;
+    }
+    .remove-filter{
+      width: 30%;
+    }
+  }
+
+  .restaurant-card {
+    margin-bottom: 20px;
+  }
+
+  .restaurants-wrapper {
+    padding: 10px;
+  }
+
+  .search-keywords {
+    top: 43px;
+  }
+
+  .applied-filters-wrapper {
+    padding-bottom: 2px;
+    margin-bottom: 0px;
+  }
+
+  .sort-wrapper select {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    background-color: white;
+    border-radius: 1px;
+    padding: 5px 0px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  [class*='col-sm-'] {
+    display: inline-block;
+  }
+
+  .col-sm-1 {
+    width: 8%;
+  }
+
+  .col-sm-3 {
+    width: 25%;
+  }
+
+  .col-sm-6 {
+    width: 50%;
+  }
+
+  .col-sm-12 {
+    width: 100%;
+  }
+
+  .offset-sm-5 {
+    margin-left: 41%;
+  }
+
+  .restaurant-card {
+    padding: 10px 15px;
+    margin-bottom: 10px;
+  }
+
+  .applied-filters-wrapper {
+    padding-top: 10px;
+    padding-bottom: 2px;
+  }
+
+  .filter-chip {
+    width: 10%;
+    padding: 10px 10px 5px 15px;
+    .chip-text {
+      width: 80%;
+    }
+    .remove-filter{
+      width: 20%;
+    }
+  }
+
+  .sort-wrapper {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    select{
+      width: 100%;
+      border: 0px;
+      background: none;
+    }
+  }
+}
