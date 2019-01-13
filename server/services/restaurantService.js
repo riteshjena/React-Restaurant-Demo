@@ -19,6 +19,7 @@ function getRestaurants(size){
     keywords = keywords.concat(restaurants[i].keywords);
   }
 
+  keywords = [...new Set(keywords)];
   keywords = keywords.map(keyword => ({ text: keyword, hidden: true }));
 
   return { restaurants, keywords };
