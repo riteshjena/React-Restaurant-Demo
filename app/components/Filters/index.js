@@ -63,8 +63,15 @@ class Filters extends React.PureComponent{
               this.state.showSuggestions &&
               <div className='card search-keywords'>
                 {
-                  this.state.searchKeywords && this.state.searchKeywords.map(keyword => (
-                    <a href='#' onClick={this.filterRestaurants(keyword.get('text'))} className='search-keyword custom-anchor'>{keyword.get('text')}</a>
+                  this.state.searchKeywords && this.state.searchKeywords.map((keyword, i) => (
+                    <a
+                      key={`${keyword}_${i}`}
+                      href='#'
+                      onClick={this.filterRestaurants(keyword.get('text'))}
+                      className='search-keyword custom-anchor'
+                    >
+                      {keyword.get('text')}
+                    </a>
                   ))
                 }
                 {
@@ -72,8 +79,15 @@ class Filters extends React.PureComponent{
                   <p className='recents-header'>Recent Searches</p>
                 }
                 {
-                  this.props.recentSearches && this.props.recentSearches.map(searchText => (
-                    <a href='#' onClick={this.filterRestaurants(searchText)} className='search-keyword custom-anchor'>{searchText}</a>
+                  this.props.recentSearches && this.props.recentSearches.map((searchText, i) => (
+                    <a
+                      key={`${searchText}_${i}`}
+                      href='#'
+                      onClick={this.filterRestaurants(searchText)}
+                      className='search-keyword custom-anchor'
+                    >
+                      {searchText}
+                    </a>
                   ))
                 }
               </div>
@@ -91,7 +105,7 @@ class Filters extends React.PureComponent{
             <div className='col-xs-12 col-sm-12 applied-filters-wrapper'>
               {
                 this.props.appliedFilters.map((filterText, i) => (
-                  <div className='filter-chip'>
+                  <div className='filter-chip' key={`${filterText}_${i}`}>
                     <div className='chip-text'>{ filterText }</div>
                     <a
                       className='custom-anchor remove-filter'
