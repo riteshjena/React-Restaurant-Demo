@@ -14,8 +14,7 @@ function* getRestaurants (action) {
 function* getRecentSearchesSession (action) {
   let searches = sessionStorage.getItem('recent-searches') ?
     sessionStorage.getItem('recent-searches').split(', ') : [];
-  searches.slice(0, action.limit);
-  yield put(updateRecentSearches(searches));
+  yield put(updateRecentSearches(searches.slice(0, action.limit)));
 }
 
 function* updateRecentSearchesSession (action) {
@@ -23,6 +22,7 @@ function* updateRecentSearchesSession (action) {
     sessionStorage.getItem('recent-searches').split(', ') : [];
   if(searches.indexOf(action.searchText) <= -1) {
     searches.splice(0, 0, action.searchText);
+    searches = searches.slice(0, action.limit);
     sessionStorage.setItem('recent-searches', searches.join(', '));
     yield put(updateRecentSearches(searches));
   }

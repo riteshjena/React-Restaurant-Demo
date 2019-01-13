@@ -33,7 +33,7 @@ class Filters extends React.PureComponent{
   }
 
   filterRestaurants = (filterText) => (e) => {
-    this.setState({ showSuggestions: false } );
+    this.setState({ showSuggestions: false, filterText } );
     this.props.toggleOverlay(false);
     this.props.filterRestaurants(filterText);
     this.props.updateRecentSearchesSession(filterText, this.props.recentsLimit)
@@ -50,7 +50,8 @@ class Filters extends React.PureComponent{
       <div className='row paddingAllTen'>
         <div className='filter-wrapper paddingAllTen'>
           <div className='col-xs-12 col-sm-6 search-text-wrapper'>
-            <div>
+            <div className='search-input-wrapper'>
+              <MdSearch className='search-icon'/>
               <input
                 autoComplete='off'
                 name='search-restaurants'

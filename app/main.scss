@@ -150,6 +150,15 @@
   width: 100%;
 }
 
+.search-input-wrapper {
+  position: relative;
+  .search-icon{
+    position: absolute;
+    right: 0px;
+    bottom: 8px;
+  }
+}
+
 @media only screen and (max-width: 768px) {
   [class*='col-xs-'] {
     display: inline-block;
